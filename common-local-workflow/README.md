@@ -41,27 +41,27 @@
 | Commit the staged changes | git commit -m "Added a header" | This updates the repo with the changes in the index |
 | Show that the working directory and the index are the same | git diff | The working area and the index are the same |
 | Show that the index and the repository are the same | git diff --cached | The index and the repository are the same |
-|&nbsp;|||
+| |||
 | <b>Revert Changes That Exist Only in the Working Directory </b>|||
 | Make changes to the <span>index.md</span> file.  Add a description beneath the \# Chapters heading: The following are the chapters: | vi <span>index.md</span> | You can use any editor you would like: Notepad, VSCode, etc. |
-| Show the git status | git status | This shows that there is a change that has not been staged (not in the index).<br/>On branch master<br/>Changes not staged for commit:<br/>&nbsp;&nbsp;(use "git add <file>..." to update what will be committed)<br/>&nbsp;&nbsp;(use "git checkout -- <file>..." to discard changes in working directory)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;modified:   index.md<br/><br/>no changes added to commit (use "git add" and/or "git commit -a") |
+| Show the git status | git status | This shows that there is a change that has not been staged (not in the index).<br/>On branch master<br/>Changes not staged for commit:<br/>  (use "git add <file>..." to update what will be committed)<br/>  (use "git checkout -- <file>..." to discard changes in working directory)<br/><br/>    modified:   index.md<br/><br/>no changes added to commit (use "git add" and/or "git commit -a") |
 | Throw away the change you just made to the file in the working directory | git checkout HEAD <span>index.md</span> | This command will overwrite the index and working directory with the <span>index.md</span> that is in the repository. |
 | Show the git status | git status | There are no longer changes in the working directory.<br/><br/>On branch master<br/>nothing to commit, working tree clean |
-|&nbsp;|||
+| |||
 | <b>Revert Index/Staging Area Changes - Leave Changes in Working Area </b>|||
 | Make changes to the <span>index.md</span> file again (the same changes are fine). | vi <span>index.md</span> | You can use any editor you would like: Notepad, VSCode, etc. |
 | Add the change to the index | git add <span>index.md</span> | Add the changed <span>index.md</span> to the index |
-| Show the git status | git status | This shows the one change to be committed (<span>index.md</span> is in the index)<br/><br/>On branch master<br/>Changes to be committed:<br/>&nbsp;&nbsp;(use "git reset HEAD <file>..." to unstage)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modified:   <span>index.md</span> | 
+| Show the git status | git status | This shows the one change to be committed (<span>index.md</span> is in the index)<br/><br/>On branch master<br/>Changes to be committed:<br/>  (use "git reset HEAD <file>..." to unstage)<br/><br/>      modified:   <span>index.md</span> | 
 | Unstage <span>index.md</span>, but leave the changes in the working directory | git reset <span>index.md</span> | git reset uses the --mixed option by default.  --mixed copies the file(s) in the repository into the index.  It does not update the working directory.<br/>--hard would update the working directory, however, you cannot pass a path (like <span>index.md</span>).  --hard only works on all changes. |
-| Show the git status | git status | This shows that there is one change that is not staged for commit.  In other words, the changes are in the working directory and not in the index.<br/><br/>On branch master<br/>Changes not staged for commit:<br/>&nbsp;&nbsp;(use "git add <file>..." to update what will be committed)<br/>&nbsp;(use "git checkout -- <file>..." to discard changes in working directory)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modified:   <span>index.md</span> |
+| Show the git status | git status | This shows that there is one change that is not staged for commit.  In other words, the changes are in the working directory and not in the index.<br/><br/>On branch master<br/>Changes not staged for commit:<br/>  (use "git add <file>..." to update what will be committed)<br/> (use "git checkout -- <file>..." to discard changes in working directory)<br/><br/>      modified:   <span>index.md</span> |
 | Show the difference between the working directory and the index | git diff | This shows the difference between what is in the Working directory (the updated <span>index.md</span>) and the index. |
-|&nbsp;|||
+| |||
 | <b>Revert Index/Staging Area Changes - Revert Changes in Working Area </b>|||
 | Add the change to the index again | git add <span>index.md</span> | Add the changed <span>index.md</span> to the index |
 | Show the git status | git status | This shows the one change to be committed (<span>index.md</span> is in the index) |
 | Unstage <span>index.md</span> and remove the changes from the working directory | git reset --hard<br/>or<br/>git checkout HEAD <span>index.md</span> | Git reset --hard does not allow you to pass in a path.  It will reset the entire index and working directory with the contents of the repository<br/><br/>You can use git checkout HEAD and pass the path | 
 | Show the git status | git status | This shows that the working directory, the index and the repository are all the same. |
-|&nbsp;|||
+| |||
 | <b>Revert Changes That Were Committed / Revert to an Earlier Commit </b>|||
 | Make changes to the <span>index.md</span> file again (the same changes are fine). | vi <span>index.md</span> | You can use any editor you would like: Notepad, VSCode, etc. |
 | Add the change to the index | git add <span>index.md</span> | Add the changed <span>index.md</span> to the index |
